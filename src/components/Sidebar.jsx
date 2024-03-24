@@ -53,7 +53,7 @@ const links = [
 export default function Sidebar() {
   const { pathname } = useLocation();
   return (
-    <div className="sidebar block h-screen w-52 bg-zinc-50 border-r flex flex-col">
+    <div className="sidebar block h-screen w-52 bg-zinc-50 border-r flex flex-col fixed top-0">
       <ul className="p-3">
         {links.map((link, index) => {
           return (
