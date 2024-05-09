@@ -116,6 +116,13 @@ function task_reducer(state, action) {
 }
 
 export function TasksProvider({ children }) {
+  var expandedTaskId = null;
+  const set_expandedTask = (id) => {
+    expandedTaskId = id;
+  };
+  const expandedTask = () => {
+    return expandedTaskId;
+  };
   const [tasks, dispatch] = useReducer(task_reducer, [
     {
       id: 1,
@@ -155,7 +162,14 @@ export function TasksProvider({ children }) {
     );
   });
 
-  const value = { tasks, dispatch, todayTasks };
+  const value = {
+    tasks,
+    dispatch,
+    todayTasks,
+    expandedTaskId,
+    set_expandedTask,
+    expandedTask,
+  };
 
   return (
     <TasksContext.Provider value={value}>{children}</TasksContext.Provider>
